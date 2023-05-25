@@ -59,13 +59,19 @@ jobs:
     name: Export
     runs-on: ubuntu-latest
     needs: [build, test]
+    with:
+      repository: ${{ github.event.pull_request.head.repo.full_name }}
+      ref: ${{ github.event.pull_request.head.ref }}
     steps:
       - uses: actions/checkout@v3
       - name: Export
         run: |
+          git config --local user.email "action@github.com" |
+          git config --local user.name "GitHub Action" |
           git checkout build |
           git checkout main -- dist |
+          mv dist/* . -f |
           git add . |
-          git commit |
+          git commit -m "Github Actions: Deploy" |
           git push
      
