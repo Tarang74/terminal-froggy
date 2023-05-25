@@ -59,8 +59,8 @@ jobs:
     name: Export
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v3
-        - needs: [build, test]
-        - name: Export
-          run: git worktree add dist build
+      - uses: actions/checkout@v3
+      - needs: [build, test]
+      - name: Export
+        run: git worktree add dist build
      
