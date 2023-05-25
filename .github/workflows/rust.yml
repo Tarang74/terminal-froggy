@@ -62,7 +62,9 @@ jobs:
           ls -la
           mkdir dist
           touch dist/test.html
-          git checkout build
+          ls -la
+          git checkout origin/build
+          ls -la
           mv dist/* . -f
           git add .
           git commit -m "Github Actions: Deploy"
