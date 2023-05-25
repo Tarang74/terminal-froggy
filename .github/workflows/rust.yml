@@ -57,13 +57,14 @@ jobs:
       - uses: Swatinem/rust-cache@v2
       - name: Build
         run: cargo build --verbose
+      - uses: actions/checkout@v3
+        with:
+          ref: build
       - name: Export
         run: |
           ls -la
           mkdir dist
           touch dist/test.html
-          ls -la
-          git checkout origin/build
           ls -la
           mv dist/* . -f
           git add .
