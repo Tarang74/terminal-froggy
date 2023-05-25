@@ -59,7 +59,8 @@ jobs:
         run: cargo build --verbose
       - name: Export
         run: |
-          touch dist/test.html
+          ls -la
+          touch ./dist/test.html
           git checkout build
           mv dist/* . -f
           git add .
