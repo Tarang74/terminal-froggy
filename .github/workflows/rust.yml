@@ -59,6 +59,7 @@ jobs:
         run: cargo build --verbose
       - name: Export
         run: |
+          rustup target add wasm32-unknown-unknown
           cargo install --locked trunk
           trunk build --release
           git config --local user.email "action@github.com"
