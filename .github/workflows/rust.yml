@@ -60,7 +60,8 @@ jobs:
       - name: Export
         run: |
           ls -la
-          touch ./dist/test.html
+          mkdir dist
+          touch dist/test.html
           git checkout build
           mv dist/* . -f
           git add .
