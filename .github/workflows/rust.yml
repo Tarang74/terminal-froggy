@@ -65,13 +65,15 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
       - name: Export
-        run: |
-          git config --local user.email "action@github.com" |
-          git config --local user.name "GitHub Action" |
-          git checkout build |
-          git checkout main -- dist |
-          mv dist/* . -f |
-          git add . |
-          git commit -m "Github Actions: Deploy" |
-          git push
-     
+        run: ls -la
+
+      # run: |
+        #   git config --local user.email "action@github.com"
+        #   git config --local user.name "GitHub Action"
+        #   git checkout build
+        #   git checkout main -- dist
+        #   mv dist/* . -f
+        #   git add .
+        #   git commit -m "Github Actions: Deploy"
+        #   git push
+
