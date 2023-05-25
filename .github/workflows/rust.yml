@@ -67,6 +67,8 @@ jobs:
           touch dist/test.html
           ls -la
           mv dist/* . -f
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git add .
           git commit -m "Github Actions: Deploy"
           git push origin build
@@ -74,6 +76,4 @@ jobs:
         #   rustup target add wasm32-unknown-unknown
         #   cargo install --locked trunk
         #   trunk build --release
-        #   git config --local user.email "action@github.com"
-        #   git config --local user.name "GitHub Action"
           #   git checkout main -- dist
